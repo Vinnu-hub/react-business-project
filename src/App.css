@@ -1,0 +1,19 @@
+/* index.css or App.css */
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+   
+
+/* Add the rotating animation to the icon */
+.rotate-y {
+    animation: rotateY 1s infinite linear;
+  }
+  
+  @keyframes rotateY {
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  
+
+  export :default App
