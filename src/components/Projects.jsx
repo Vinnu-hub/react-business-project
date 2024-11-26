@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { assets, projectsData } from '../assets/assets';
 
 const Project = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);  // Renamed currentInde to currentIndex
-  const [cardsToShow, setCardsToShow] = useState(1);  // Renamed cardsToShow to cardsToShow
+  const [currentIndex, setCurrentIndex] = useState(0); 
+  const [cardsToShow, setCardsToShow] = useState(1); 
   
 useEffect(()=> {
 
