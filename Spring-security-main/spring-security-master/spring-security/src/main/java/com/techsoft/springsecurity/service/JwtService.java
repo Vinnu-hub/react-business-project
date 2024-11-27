@@ -21,6 +21,7 @@ public class JwtService {
     private static final String SECERET = "!@#$FDGSDFGSGSGSGSHSHSHSSHGFFDSGSFGSSGHSDFSDFSFSFSFSDFSFSFSF";
 
     public String generateToken(String userName){
+
         Map<String, Objects> claims = new HashMap<>();
         return Jwts.builder()
                 .setClaims(claims)

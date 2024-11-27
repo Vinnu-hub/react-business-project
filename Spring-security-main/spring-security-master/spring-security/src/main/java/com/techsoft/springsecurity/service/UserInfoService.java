@@ -3,6 +3,7 @@ package com.techsoft.springsecurity.service;
 import com.techsoft.springsecurity.entity.UserInfo;
 import com.techsoft.springsecurity.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,6 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +37,11 @@ public class UserInfoService implements UserDetailsService {
     public List<UserInfo> getAllUser(){
          return userInfoRepository.findAll();
     }
-    public UserInfo getUser(Integer id){
+    public UserInfo getUser(Integer id) {
         return userInfoRepository.findById(id).get();
     }
+
+
+
+
 }

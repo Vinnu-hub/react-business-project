@@ -8,7 +8,7 @@ const doubleCheckIcon =
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",  // Changed 'username' to 'name'
     email: "",
     password: "",
   });
@@ -25,7 +25,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:7079/auth/signup", formData);
+      const response = await axios.post("http://localhost:7777/auth/signup", formData);
       if (response.status === 200) {
         Swal.fire({
           title: "Signup Successful!",
@@ -58,15 +58,15 @@ const Signup = () => {
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Sign Up</h2>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium text-gray-700">
-            Username
+            name
           </label>
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="name"  // Changed 'username' to 'name'
+            value={formData.name}  // Changed 'formData.username' to 'formData.name'
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-lg"
-            placeholder="Enter your username"
+            placeholder="Enter your name"
             required
           />
         </div>

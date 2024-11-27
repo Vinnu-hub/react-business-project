@@ -8,7 +8,7 @@ const doubleCheckIcon =
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:7079/auth/login", formData, {
+      const response = await axios.post("http://localhost:7777/auth/login", formData, {
         headers: {
           "Content-Type": "application/json", // Ensure proper content type
         },
@@ -64,15 +64,15 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-gray-800">Login</h2>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium text-gray-700">
-            Email
+            userName
           </label>
           <input
-            type="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-lg"
-            placeholder="Enter your email"
+            placeholder="Enter your username"
             required
           />
         </div>

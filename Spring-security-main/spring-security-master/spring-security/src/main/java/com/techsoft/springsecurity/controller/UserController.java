@@ -40,12 +40,9 @@ public class UserController {
     }
     @PostMapping("/login")
     public String addUser(@RequestBody AuthRequest authRequest){
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
-        if(authenticate.isAuthenticated()){
+
             return jwtService.generateToken(authRequest.getUserName());
-        }else {
-            throw new UsernameNotFoundException("Invalid user request");
-        }
+       
     }
     @PostMapping("/logout")
     @PreAuthorize("hasAuthority('USER_ROLES') or hasAuthority('ADMIN_ROLES')")
@@ -70,3 +67,7 @@ public class UserController {
         return userInfoService.getUser(id);
     }
 }
+
+
+
+
