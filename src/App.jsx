@@ -29,11 +29,12 @@ const App = () => {
               <Contact />
               <ToastContainer />
               <Footer />
+            
             </>
           }
         />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} /> {/* Added Login route */}
+        <Route path="/login" element={<Login />} /> 
       </Routes>
     </Router>
   );

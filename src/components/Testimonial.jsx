@@ -1,9 +1,18 @@
 import React from 'react';
 import { assets, testimonialsData } from '../assets/assets';
 
+import { motion } from 'framer-motion';
+
 const Testimonial = () => {
   return (
-    <div className="container mx-auto py-10 lg:px-32 w-full overflow-hidden" id='Testimonials'>
+    < motion.div 
+    
+    initial={{opacity:0, x:100}}
+        transition={{duration:1 }}
+        whileInView={{opacity:1,x:0}}
+        viewport={{once:true}}
+    
+    className="container mx-auto py-10 lg:px-32 w-full overflow-hidden" id='Testimonials'>
       <h1 className="text-2xl sm:text-center mb-6">
         Customer <span>Testimonial</span>
       </h1>
@@ -18,6 +27,7 @@ const Testimonial = () => {
               src={testimonial.image} // Ensure the image path is correct
               alt={testimonial.alt}
             />
+            
             <h2 className="text-lg text-gray-700 font-medium">{testimonial.name}</h2>
             <p className="text-gray-500 mb-3 text-sm">{testimonial.title}</p>
             
@@ -32,7 +42,7 @@ const Testimonial = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { assets, projectsData } from '../assets/assets';
+import { motion } from 'framer-motion';
 
 const Project = () => {
   const [currentIndex, setCurrentIndex] = useState(0); 
   const [cardsToShow, setCardsToShow] = useState(1); 
   
-useEffect(()=> {
 
+useEffect(()=> 
+  {
    const updateCardsToShow=()=>
    {
      if(window.innerWidth>=1024)
      {
       setCardsToShow(projectsData.length);
      }
-     else{
+     else
+     {
       setCardsToShow(1)
      };
     }
@@ -37,13 +40,23 @@ return()=> window.removeEventListener('resize',updateCardsToShow);
   };
 
   return (
-    <div className='container mx-auto py-4 pt-20 px-6 md:px-30 lg:px-32 w-full overflow-hidden' id='Projects'>
+    < motion.div
+    
+    initial={{opacity:0, x:-200}}
+    transition={{duration:1 }}
+    whileInView={{opacity:1,x:0}}
+    viewport={{once:true}}
+     
+    
+    className='container mx-auto py-4 pt-20 px-6 md:px-30 lg:px-32 w-full overflow-hidden' id='Projects'>
       <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>
         Project <span className='underline underline-offset-4 decoration-1 font-light'>Completed</span>
       </h1>
       <p className='text-center text-gray-500 mb max-w-80 mx-auto'>
         Crafting Space, Building Legacies - Explore Our Portfolio
       </p>
+
+
 
       {/* Slider buttons */}
       <div className='flex justify-end items-center mb-8'>
@@ -54,6 +67,8 @@ return()=> window.removeEventListener('resize',updateCardsToShow);
           <img src={assets.right_arrow} alt="Next" />
         </button>
       </div>
+
+
 
       {/* Project Cards and Sliders Container */}
       <div className='overflow-hidden'>
@@ -78,7 +93,7 @@ return()=> window.removeEventListener('resize',updateCardsToShow);
           ))}
         </div>
       </div>
-    </div>
+    </ motion.div>
   );
 };
 
